@@ -16,6 +16,18 @@ public class Grid {
         cells = new Cell[cols][rows];
     }
 
+    public Cell getCells(int col, int row) {
+        return cells[col][row];
+    }
+
+    public int getCols() {
+        return cols;
+    }
+
+    public int getRows() {
+        return rows;
+    }
+
     public void init() {
         for (int col = 0; col < cols; col++) {
             for (int row = 0; row < rows; row++) {

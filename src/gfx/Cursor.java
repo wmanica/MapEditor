@@ -3,10 +3,16 @@ package gfx;
 import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.keyboard.*;
 
+import javax.swing.text.Position;
+
 public class Cursor extends Cell implements KeyboardHandler {
 
-    public Cursor(int col, int row) {
+    private Position position;
+    private Grid grid;
+
+    public Cursor(int col, int row, Grid grid) {
         super(col, row);
+        this.grid = grid;
         rectangle.setColor(Color.LIGHT_GRAY);
         rectangle.fill();
     }
@@ -34,6 +40,11 @@ public class Cursor extends Cell implements KeyboardHandler {
         eventDown.setKey(KeyboardEvent.KEY_DOWN);
         eventDown.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
         keyboard.addEventListener(eventDown);
+
+        KeyboardEvent eventPaint = new KeyboardEvent();
+        eventPaint.setKey(KeyboardEvent.KEY_SPACE);
+        eventPaint.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+        keyboard.addEventListener(eventPaint);
     }
 
 
@@ -55,6 +66,11 @@ public class Cursor extends Cell implements KeyboardHandler {
         if (keyboardEvent.getKey() == KeyboardEvent.KEY_DOWN) {
             moveDown();
         }
+
+        if (keyboardEvent.getKey() == KeyboardEvent.KEY_SPACE) {
+            cursorPaint();
+            System.out.println(position);
+        }
     }
 
 
@@ -65,21 +81,28 @@ public class Cursor extends Cell implements KeyboardHandler {
 
     public void moveLeft() {
         System.out.println("left");
-        rectangle.translate(-1 * CELL_SIZE,0 );
+        rectangle.translate(-1 * CELL_SIZE, 0);
     }
 
     public void moveRight() {
         System.out.println("right");
-        rectangle.translate(1 * CELL_SIZE,0 );
+        if ((getCol()*CELL_SIZE) < (grid.getCols()*CELL_SIZE)) {
+            rectangle.translate(1 * CELL_SIZE, 0);
+        }
     }
 
     public void moveUp() {
-        System.out.println("right");
-        rectangle.translate(0,-1 * CELL_SIZE );
+        System.out.println("up");
+        rectangle.translate(0, -1 * CELL_SIZE);
     }
 
     public void moveDown() {
-        System.out.println("right");
-        rectangle.translate(0,1 * CELL_SIZE );
+        System.out.println("down");
+        rectangle.translate(0, 1 * CELL_SIZE);
+    }
+
+    public void cursorPaint() {
+        System.out.println("paint");
+        grid.getCells(getCol(), getRow()).paint();
     }
 }

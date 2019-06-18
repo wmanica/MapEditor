@@ -1,5 +1,6 @@
 package gfx;
 
+import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 
 public class Cell {
@@ -28,6 +29,8 @@ public class Cell {
      * paint cell
      */
     public void paint() {
+
+        rectangle.setColor(Color.BLACK);
         rectangle.fill();
     }
 
