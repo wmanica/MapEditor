@@ -68,7 +68,7 @@ public class Cursor extends Cell implements KeyboardHandler {
         }
 
         if (keyboardEvent.getKey() == KeyboardEvent.KEY_SPACE) {
-            cursorPaint();
+            brush();
             System.out.println(position);
         }
     }
@@ -80,34 +80,46 @@ public class Cursor extends Cell implements KeyboardHandler {
 
 
     public void moveLeft() {
-        System.out.println("left");
-        rectangle.translate(-1 * CELL_SIZE, 0);
-        setCol(getCol() - 1);
+        if (getCol() > 0) {
+            rectangle.translate(-1 * CELL_SIZE, 0);
+            setCol(getCol() - 1);
+        }
     }
 
 
     public void moveRight() {
-        if ((getCol()) < (grid.getCols()-1)) {
+        if ((getCol()) < (grid.getCols() - 1)) {
             rectangle.translate(1 * CELL_SIZE, 0);
             setCol(getCol() + 1);
-            System.out.println("right");
         }
     }
 
     public void moveUp() {
         System.out.println("up");
-        rectangle.translate(0, -1 * CELL_SIZE);
-        setRow(getRow() - 1);
+        if (getRow() > 0) {
+            rectangle.translate(0, -1 * CELL_SIZE);
+            setRow(getRow() - 1);
+        }
     }
 
     public void moveDown() {
         System.out.println("down");
-        rectangle.translate(0, 1 * CELL_SIZE);
-        setRow(getRow() + 1);
+        if ((getRow()) < (grid.getRows() - 1)) {
+            rectangle.translate(0, 1 * CELL_SIZE);
+            setRow(getRow() + 1);
+        }
     }
 
-    public void cursorPaint() {
-        System.out.println("paint");
-        grid.getCells(getCol(),getRow()).paint();
+    public void brush() {
+        if (!grid.getCells(getCol(), getRow()).isPainted()) {
+            System.out.println("paint");
+            grid.getCells(getCol(), getRow()).paint();
+            grid.getCells(getCol(), getRow()).setPainted(true);
+
+        } else {
+            System.out.println("clear");
+            grid.getCells(getCol(), getRow()).show();
+            grid.getCells(getCol(), getRow()).setPainted(false);
+        }
     }
 }
