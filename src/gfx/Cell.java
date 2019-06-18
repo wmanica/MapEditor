@@ -11,6 +11,7 @@ public class Cell {
     private int row;
     private boolean paintedBlack;
     private boolean paintedRed;
+    private boolean paintedPink;
     protected Rectangle rectangle;
 
 
@@ -57,6 +58,14 @@ public class Cell {
         this.paintedRed = paintedRed;
     }
 
+    public boolean isPaintedPink() {
+        return paintedPink;
+    }
+
+    public void setPaintedPink(boolean paintedPink) {
+        this.paintedPink = paintedPink;
+    }
+
     /**
      * show cell
      */
@@ -78,5 +87,9 @@ public class Cell {
         rectangle.fill();
     }
 
+    public void paintPink() {
+        rectangle.setColor(Color.PINK);
+        rectangle.fill();
+    }
 
 }
