@@ -7,6 +7,7 @@ import javax.swing.text.Position;
 
 public class Cursor extends Cell implements KeyboardHandler {
 
+    public static final int DISTANCE = 0;
     private Position position;
     private Grid grid;
 
@@ -16,7 +17,6 @@ public class Cursor extends Cell implements KeyboardHandler {
         rectangle.setColor(Color.LIGHT_GRAY);
         rectangle.fill();
     }
-
 
     public void keyMove() {
         Keyboard keyboard = new Keyboard(this);
@@ -82,27 +82,32 @@ public class Cursor extends Cell implements KeyboardHandler {
     public void moveLeft() {
         System.out.println("left");
         rectangle.translate(-1 * CELL_SIZE, 0);
+        setCol(getCol() - 1);
     }
 
+
     public void moveRight() {
-        System.out.println("right");
-        if ((getCol()*CELL_SIZE) < (grid.getCols()*CELL_SIZE)) {
+        if ((getCol()) < (grid.getCols()-1)) {
             rectangle.translate(1 * CELL_SIZE, 0);
+            setCol(getCol() + 1);
+            System.out.println("right");
         }
     }
 
     public void moveUp() {
         System.out.println("up");
         rectangle.translate(0, -1 * CELL_SIZE);
+        setRow(getRow() - 1);
     }
 
     public void moveDown() {
         System.out.println("down");
         rectangle.translate(0, 1 * CELL_SIZE);
+        setRow(getRow() + 1);
     }
 
     public void cursorPaint() {
         System.out.println("paint");
-        grid.getCells(getCol(), getRow()).paint();
+        grid.getCells(getCol(),getRow()).paint();
     }
 }
