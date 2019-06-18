@@ -45,6 +45,11 @@ public class Cursor extends Cell implements KeyboardHandler {
         eventPaint.setKey(KeyboardEvent.KEY_SPACE);
         eventPaint.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
         keyboard.addEventListener(eventPaint);
+
+        KeyboardEvent eventRed = new KeyboardEvent();
+        eventRed.setKey(KeyboardEvent.KEY_1);
+        eventRed.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+        keyboard.addEventListener(eventRed);
     }
 
 
@@ -69,7 +74,10 @@ public class Cursor extends Cell implements KeyboardHandler {
 
         if (keyboardEvent.getKey() == KeyboardEvent.KEY_SPACE) {
             brush();
-            System.out.println(position);
+        }
+
+        if (keyboardEvent.getKey() == KeyboardEvent.KEY_1) {
+            red();
         }
     }
 
@@ -111,15 +119,29 @@ public class Cursor extends Cell implements KeyboardHandler {
     }
 
     public void brush() {
-        if (!grid.getCells(getCol(), getRow()).isPainted()) {
-            System.out.println("paint");
-            grid.getCells(getCol(), getRow()).paint();
-            grid.getCells(getCol(), getRow()).setPainted(true);
+        if (!grid.getCells(getCol(), getRow()).isPaintedBlack()) {
+            System.out.println("paintBlack");
+            grid.getCells(getCol(), getRow()).paintBlack();
+            grid.getCells(getCol(), getRow()).setPaintedBlack(true);
 
         } else {
             System.out.println("clear");
             grid.getCells(getCol(), getRow()).show();
-            grid.getCells(getCol(), getRow()).setPainted(false);
+            grid.getCells(getCol(), getRow()).setPaintedBlack(false);
         }
     }
+
+    public void red() {
+        if (!grid.getCells(getCol(), getRow()).isPaintedRed()) {
+            System.out.println("paintBlack");
+            grid.getCells(getCol(), getRow()).paintRed();
+            grid.getCells(getCol(), getRow()).setPaintedRed(true);
+
+        } else {
+            System.out.println("clear");
+            grid.getCells(getCol(), getRow()).show();
+            grid.getCells(getCol(), getRow()).setPaintedRed(false);
+        }
+    }
+
 }

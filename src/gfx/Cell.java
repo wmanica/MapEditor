@@ -9,7 +9,8 @@ public class Cell {
     public static final int CELL_SIZE = 15;
     private int col;
     private int row;
-    private boolean painted;
+    private boolean paintedBlack;
+    private boolean paintedRed;
     protected Rectangle rectangle;
 
 
@@ -36,29 +37,46 @@ public class Cell {
         this.row = row;
     }
 
-    public boolean isPainted() {
-        return painted;
+    /**
+     *
+     * GETTER / SETTER COLORS
+     */
+    public boolean isPaintedBlack() {
+        return paintedBlack;
     }
 
-    public void setPainted(boolean painted) {
-        this.painted = painted;
+    public void setPaintedBlack(boolean paintedBlack) {
+        this.paintedBlack = paintedBlack;
+    }
+
+    public boolean isPaintedRed() {
+        return paintedRed;
+    }
+
+    public void setPaintedRed(boolean paintedRed) {
+        this.paintedRed = paintedRed;
     }
 
     /**
      * show cell
      */
     public void show() {
+        rectangle.setColor(Color.BLACK);
         rectangle.draw();
     }
 
     /**
-     * paint cell
+     * paintBlack cell
      */
-    public void paint() {
+    public void paintBlack() {
         rectangle.setColor(Color.BLACK);
         rectangle.fill();
     }
 
+    public void paintRed() {
+        rectangle.setColor(Color.RED);
+        rectangle.fill();
+    }
 
 
 }
