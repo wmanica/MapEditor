@@ -38,6 +38,23 @@ public class Cell {
         this.row = row;
     }
 
+
+
+    @Override
+    public String toString() {
+        if (paintedBlack) {
+            return "1";
+        }
+        return "0";
+    }
+
+        /**
+         * toString()
+    @Override
+    public String toString() {
+        return paintedBlack ? "1" : "0";
+    }    }*/
+
     /**
      *
      * GETTER / SETTER COLORS

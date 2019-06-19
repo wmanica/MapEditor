@@ -10,6 +10,8 @@ public class Cursor extends Cell implements KeyboardHandler {
     public static final int DISTANCE = 0;
     private Position position;
     private Grid grid;
+    private SaveLoad saveLoad;
+
 
     public Cursor(int col, int row, Grid grid) {
         super(col, row);
@@ -55,6 +57,11 @@ public class Cursor extends Cell implements KeyboardHandler {
         eventPink.setKey(KeyboardEvent.KEY_2);
         eventPink.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
         keyboard.addEventListener(eventPink);
+
+        KeyboardEvent eventSave = new KeyboardEvent();
+        eventSave.setKey(KeyboardEvent.KEY_S);
+        eventSave.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+        keyboard.addEventListener(eventSave);
     }
 
 
@@ -87,6 +94,12 @@ public class Cursor extends Cell implements KeyboardHandler {
 
         if (keyboardEvent.getKey() == KeyboardEvent.KEY_2) {
             pink();
+        }
+
+        if (keyboardEvent.getKey() == KeyboardEvent.KEY_S) {
+
+            System.out.println(grid.toString());;
+
         }
     }
 

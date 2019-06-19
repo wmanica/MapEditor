@@ -10,6 +10,7 @@ public class Grid {
     private int rows;
     private Rectangle rectangle;
 
+
     public Grid(int cols, int rows) {
         this.cols = cols;
         this.rows = rows;
@@ -29,6 +30,8 @@ public class Grid {
         return rows;
     }
 
+
+
     public void init() {
         for (int col = 0; col < cols; col++) {
             for (int row = 0; row < rows; row++) {
@@ -37,6 +40,18 @@ public class Grid {
             }
         }
 
+    }
+
+    @Override
+    public String toString() {
+        String gridString = "";
+        for (int col = 0; col < cols; col++) {
+            for (int row = 0; row < rows; row++) {
+                 gridString += cells[col][row].toString();
+            }
+            gridString += "\n";
+        }
+        return gridString;
     }
 }
 
