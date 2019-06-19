@@ -33,8 +33,8 @@ public class Grid {
 
 
     public void init() {
-        for (int col = 0; col < cols; col++) {
-            for (int row = 0; row < rows; row++) {
+        for (int row = 0; row < rows; row++) {
+            for (int col = 0; col < cols; col++) {
                 cells[col][row] = new Cell(col, row);
                 cells[col][row].show();
             }
@@ -45,8 +45,8 @@ public class Grid {
     @Override
     public String toString() {
         String gridString = "";
-        for (int col = 0; col < cols; col++) {
-            for (int row = 0; row < rows; row++) {
+        for (int row = 0; row < rows; row++) {
+            for (int col = 0; col < cols; col++) {
                  gridString += cells[col][row].toString();
             }
             gridString += "\n";

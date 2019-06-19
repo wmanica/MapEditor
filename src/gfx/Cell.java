@@ -15,11 +15,10 @@ public class Cell {
     protected Rectangle rectangle;
 
 
-
     public Cell(int col, int row) {
         this.col = col;
         this.row = row;
-        rectangle = new Rectangle(col * CELL_SIZE, row * CELL_SIZE, CELL_SIZE, CELL_SIZE );
+        rectangle = new Rectangle(col * CELL_SIZE, row * CELL_SIZE, CELL_SIZE, CELL_SIZE);
     }
 
     public int getCol() {
@@ -39,7 +38,6 @@ public class Cell {
     }
 
 
-
     @Override
     public String toString() {
         if (paintedBlack) {
@@ -48,15 +46,13 @@ public class Cell {
         return "0";
     }
 
-        /**
-         * toString()
-    @Override
-    public String toString() {
-        return paintedBlack ? "1" : "0";
-    }    }*/
+    /**
+     * toString()
+     @Override public String toString() {
+     return paintedBlack ? "1" : "0";
+     }    }*/
 
     /**
-     *
      * GETTER / SETTER COLORS
      */
     public boolean isPaintedBlack() {

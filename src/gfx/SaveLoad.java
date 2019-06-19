@@ -8,12 +8,14 @@ public class SaveLoad {
 
     private Grid grid;
 
-    public static void writeToFile() throws IOException {
-
-
-        FileWriter stringWriter = new FileWriter("save2load.txt");
-        BufferedWriter bufferedWriter = new BufferedWriter(stringWriter);
-        stringWriter.write
+    public void writeToFile(String toWrite) {
+        try {
+            FileWriter stringWriter = new FileWriter("save2load.txt");
+            BufferedWriter bufferedWriter = new BufferedWriter(stringWriter);
+            bufferedWriter.write(toWrite);
+            bufferedWriter.close();
+        } catch (IOException ioEx) {
+            System.out.println("IO Exception");
         }
-
+    }
 }

@@ -9,7 +9,7 @@ public class Main {
         Grid gridTest = new Grid(40, 40);
         gridTest.init();
 
-        Cursor cursor = new Cursor(0,0 , gridTest);
+        Cursor cursor = new Cursor(0, 0, gridTest);
         cursor.keyMove();
 
     }
