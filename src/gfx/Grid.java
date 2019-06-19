@@ -4,10 +4,10 @@ import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 
 public class Grid {
 
-    private Cell[][] cells;
+    private static Cell[][] cells;
     private static final int PADDING = 10;
-    private int cols;
-    private int rows;
+    private static int cols;
+    private static int rows;
     private Rectangle rectangle;
 
 
@@ -42,8 +42,7 @@ public class Grid {
 
     }
 
-    @Override
-    public String toString() {
+    public static String printString() {
         String gridString = "";
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {

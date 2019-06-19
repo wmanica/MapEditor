@@ -97,13 +97,8 @@ public class Cursor extends Cell implements KeyboardHandler {
         }
 
         if (keyboardEvent.getKey() == KeyboardEvent.KEY_S) {
-            System.out.println(grid.toString());
-            ;
-            try {
-                saveLoad.writeToFile(grid.toString());
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            System.out.println(Grid.printString());
+                saveLoad.writeToFile(Grid.printString());
         }
     }
 

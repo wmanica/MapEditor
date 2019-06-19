@@ -1,14 +1,14 @@
 package gfx;
 
-import com.sun.org.apache.xpath.internal.operations.String;
-
 import java.io.*;
+import java.lang.*;
 
 public class SaveLoad {
 
     private Grid grid;
+    private String toWrite = Grid.printString();
 
-    public void writeToFile(String toWrite) {
+    public static void writeToFile(String toWrite) {
         try {
             FileWriter stringWriter = new FileWriter("save2load.txt");
             BufferedWriter bufferedWriter = new BufferedWriter(stringWriter);
