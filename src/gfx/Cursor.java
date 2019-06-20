@@ -60,6 +60,11 @@ public class Cursor extends Cell implements KeyboardHandler {
         eventPink.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
         keyboard.addEventListener(eventPink);
 
+        KeyboardEvent eventBlue = new KeyboardEvent();
+        eventBlue.setKey(KeyboardEvent.KEY_3);
+        eventBlue.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+        keyboard.addEventListener(eventBlue);
+
         KeyboardEvent eventSave = new KeyboardEvent();
         eventSave.setKey(KeyboardEvent.KEY_S);
         eventSave.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
@@ -101,6 +106,10 @@ public class Cursor extends Cell implements KeyboardHandler {
 
         if (keyboardEvent.getKey() == KeyboardEvent.KEY_2) {
             pink();
+        }
+
+        if (keyboardEvent.getKey() == KeyboardEvent.KEY_3) {
+            blue();
         }
 
         if (keyboardEvent.getKey() == KeyboardEvent.KEY_S) {
@@ -187,6 +196,19 @@ public class Cursor extends Cell implements KeyboardHandler {
             System.out.println("clear");
             grid.getCells(getCol(), getRow()).show();
             grid.getCells(getCol(), getRow()).setPaintedPink(false);
+        }
+    }
+
+    public void blue() {
+        if (!grid.getCells(getCol(), getRow()).isPaintedBlue()) {
+            System.out.println("paintBlue");
+            grid.getCells(getCol(), getRow()).paintBlue();
+            grid.getCells(getCol(), getRow()).setPaintedBlue(true);
+
+        } else {
+            System.out.println("clear");
+            grid.getCells(getCol(), getRow()).show();
+            grid.getCells(getCol(), getRow()).setPaintedBlue(false);
         }
     }
 

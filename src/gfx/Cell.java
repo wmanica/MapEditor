@@ -12,6 +12,7 @@ public class Cell {
     private boolean paintedBlack;
     private boolean paintedRed;
     private boolean paintedPink;
+    private boolean paintedBlue;
     protected Rectangle rectangle;
 
 
@@ -46,6 +47,8 @@ public class Cell {
             return "2";
         } else if (paintedRed) {
             return "3";
+        } else if (paintedBlue) {
+            return "4";
         } else {
             return "0";
         }
@@ -84,6 +87,14 @@ public class Cell {
         this.paintedPink = paintedPink;
     }
 
+    public boolean isPaintedBlue() {
+        return paintedBlue;
+    }
+
+    public void setPaintedBlue(boolean paintedBlue) {
+        this.paintedBlue = paintedBlue;
+    }
+
     /**
      * show cell
      */
@@ -110,4 +121,8 @@ public class Cell {
         rectangle.fill();
     }
 
+    public void paintBlue() {
+        rectangle.setColor(Color.BLUE);
+        rectangle.fill();
+    }
 }

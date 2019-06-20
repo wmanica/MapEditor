@@ -84,6 +84,8 @@ public class Grid {
                     cell.paintPink();
                 } else if(toLoad.charAt(index)== '3') {
                     cell.paintRed();
+                } else if(toLoad.charAt(index)== '4') {
+                    cell.paintBlue();
                 } else {
                     cell.show();
                 }
