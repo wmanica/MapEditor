@@ -62,6 +62,11 @@ public class Cursor extends Cell implements KeyboardHandler {
         eventSave.setKey(KeyboardEvent.KEY_S);
         eventSave.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
         keyboard.addEventListener(eventSave);
+
+        KeyboardEvent eventLoad = new KeyboardEvent();
+        eventLoad.setKey(KeyboardEvent.KEY_L);
+        eventLoad.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+        keyboard.addEventListener(eventLoad);
     }
 
 
@@ -97,8 +102,12 @@ public class Cursor extends Cell implements KeyboardHandler {
         }
 
         if (keyboardEvent.getKey() == KeyboardEvent.KEY_S) {
-            System.out.println(Grid.printString());
-            fileManager.writeToFile(Grid.printString());
+            FileManager.writeToFile(Grid.printString());
+        }
+
+        if (keyboardEvent.getKey() == KeyboardEvent.KEY_L) {
+            System.out.println("loading");
+            FileManager.loadFile();
         }
     }
 
