@@ -42,8 +42,13 @@ public class Cell {
     public String toString() {
         if (paintedBlack) {
             return "1";
+        } else if (paintedPink) {
+            return "2";
+        } else if (paintedRed) {
+            return "3";
+        } else {
+            return "0";
         }
-        return "0";
     }
 
     /**

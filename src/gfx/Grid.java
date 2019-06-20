@@ -55,16 +55,37 @@ public class Grid {
     }
 
 
+    /**
+     @Override
+     public String toString() {
+     if (paintedBlack) {
+     return "1";
+     } else if (paintedPink) {
+     return "2";
+     } else if (paintedRed) {
+     return "3";
+     } else {
+     return "0";
+     }
+     }
+     */
+
+
+
     public void stringToGrid(String toLoad) {
         int index = 0;
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {
                 Cell cell = cells[col][row];
 
-                if (toLoad.charAt(index)== '0') {
-                    cell.show();
-                } else {
+                if (toLoad.charAt(index)== '1') {
                     cell.paintBlack();
+                } else if(toLoad.charAt(index)== '2') {
+                    cell.paintPink();
+                } else if(toLoad.charAt(index)== '3') {
+                    cell.paintRed();
+                } else {
+                    cell.show();
                 }
 
                 index++;
