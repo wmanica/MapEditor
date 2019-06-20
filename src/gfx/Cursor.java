@@ -10,7 +10,7 @@ public class Cursor extends Cell implements KeyboardHandler {
     public static final int DISTANCE = 0;
     private Position position;
     private Grid grid;
-    private SaveLoad saveLoad;
+    private FileManager fileManager;
 
 
     public Cursor(int col, int row, Grid grid) {
@@ -98,7 +98,7 @@ public class Cursor extends Cell implements KeyboardHandler {
 
         if (keyboardEvent.getKey() == KeyboardEvent.KEY_S) {
             System.out.println(Grid.printString());
-                saveLoad.writeToFile(Grid.printString());
+            fileManager.writeToFile(Grid.printString());
         }
     }
 
