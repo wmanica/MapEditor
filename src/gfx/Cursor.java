@@ -20,6 +20,8 @@ public class Cursor extends Cell implements KeyboardHandler {
         rectangle.fill();
     }
 
+
+
     public void keyMove() {
         Keyboard keyboard = new Keyboard(this);
 
@@ -102,12 +104,12 @@ public class Cursor extends Cell implements KeyboardHandler {
         }
 
         if (keyboardEvent.getKey() == KeyboardEvent.KEY_S) {
-            FileManager.writeToFile(Grid.printString());
+            FileManager.writeToFile(grid.toString());
         }
 
         if (keyboardEvent.getKey() == KeyboardEvent.KEY_L) {
             System.out.println("loading");
-            FileManager.loadFile();
+            grid.stringToGrid(FileManager.loadFile());
         }
     }
 

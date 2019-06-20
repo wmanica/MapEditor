@@ -6,8 +6,8 @@ public class Grid {
 
     private static Cell[][] cells;
     private static final int PADDING = 10;
-    private static int cols;
-    private static int rows;
+    private int cols;
+    private int rows;
     private Rectangle rectangle;
 
 
@@ -42,7 +42,10 @@ public class Grid {
 
     }
 
-    public static String printString() {
+
+
+    @Override
+    public String toString() {
         String gridString = "";
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {
@@ -51,6 +54,15 @@ public class Grid {
             gridString += "\n";
         }
         return gridString;
+    }
+
+
+    public void stringToGrid(String toLoad){
+
+        for (int row = 0; row < rows; row++) {
+            for (int col = 0; col < cols; col++) {
+
+
     }
 }
 
