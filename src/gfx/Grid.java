@@ -14,7 +14,7 @@ public class Grid {
     public Grid(int cols, int rows) {
         this.cols = cols;
         this.rows = rows;
-        rectangle = new Rectangle(0,0 , cols, rows);
+        rectangle = new Rectangle(0, 0, cols, rows);
         cells = new Cell[cols][rows];
     }
 
@@ -31,7 +31,6 @@ public class Grid {
     }
 
 
-
     public void init() {
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {
@@ -43,13 +42,12 @@ public class Grid {
     }
 
 
-
     @Override
     public String toString() {
         String gridString = "";
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {
-                 gridString += cells[col][row].toString();
+                gridString += cells[col][row].toString();
             }
             gridString += "\n";
         }
@@ -57,11 +55,22 @@ public class Grid {
     }
 
 
-    public void stringToGrid(String toLoad){
-
+    public void stringToGrid(String toLoad) {
+        int index = 0;
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {
+                Cell cell = cells[col][row];
 
+                if (toLoad.charAt(index)== '0') {
+                    cell.show();
+                } else {
+                    cell.paintBlack();
+                }
+
+                index++;
+            }
+            index++;
+        }
 
     }
 }

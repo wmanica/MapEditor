@@ -11,9 +11,5 @@ public class Main {
 
         Cursor cursor = new Cursor(0, 0, gridTest);
         cursor.keyMove();
-
-
     }
-
-
 }

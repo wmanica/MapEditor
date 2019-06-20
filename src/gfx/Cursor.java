@@ -104,6 +104,7 @@ public class Cursor extends Cell implements KeyboardHandler {
         }
 
         if (keyboardEvent.getKey() == KeyboardEvent.KEY_S) {
+            System.out.println("saving");
             FileManager.writeToFile(grid.toString());
         }
 
