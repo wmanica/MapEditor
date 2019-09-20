@@ -1,9 +1,9 @@
-#Map Editor - basic paint
+# Map Editor - basic paint
 Jun 2019
 
 ## Description
 ### // Short Intro
-Challenge proposed by <Academia de Código_> bootcamp. A monochromatic paint with grid, graphics and persistence.
+Challenge proposed by <Academia de CÃ³digo_> bootcamp. A monochromatic paint with grid, graphics and persistence.
 ### // The Idea
 The idea was to review everything learned up to that day. The goal was to create a grid and a brush that could paint or erase a cell. The position of the grid should be persisted to a single text file in order to be loaded again.
 ### // The Development
